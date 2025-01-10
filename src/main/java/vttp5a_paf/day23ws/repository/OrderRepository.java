@@ -23,6 +23,9 @@ public class OrderRepository {
             return Optional.of(Order.toOrder(rs));
         } catch (Exception e) {
             // why does the query gimme a null row when there's nothing?
+            // because the aggregate sum() is used in the query..
+            // if don't use then is fine and can do as per normal...
+            // not really sure why tho...
             return Optional.empty();
         }
     }
